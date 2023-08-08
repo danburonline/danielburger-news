@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@heroicons/react':
-    specifier: 2.0.18
-    version: 2.0.18(react@18.2.0)
   '@tailwindcss/forms':
     specifier: 0.5.4
     version: 0.5.4(tailwindcss@3.3.3)
@@ -102,14 +99,6 @@ packages:
   /@eslint/js@8.46.0:
     resolution: {integrity: sha512-a8TLtmPi8xzPkCbp/OGFUo5yhRkHM2Ko9kOWP4znJr0WAhWyThaw3PnwX4vOTWOAMsV2uRt32PPDcEz63esSaA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dev: false
-
-  /@heroicons/react@2.0.18(react@18.2.0):
-    resolution: {integrity: sha512-7TyMjRrZZMBPa+/5Y8lN0iyvUU/01PeMGX2+RE7cQWpEUIcb4QotzUObFkJDejj/HUH4qjP/eQ0gzzKs2f+6Yw==}
-    peerDependencies:
-      react: '>= 16'
-    dependencies:
-      react: 18.2.0
     dev: false
 
   /@humanwhocodes/config-array@0.11.10:
