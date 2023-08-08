@@ -2,14 +2,23 @@
 
 import { formAction } from './actions'
 import { useState, useTransition } from 'react'
+import Toast, { TOAST_TYPE } from './components/Toast'
 
 export default function SubscribePage() {
   let [isPending, startTransition] = useTransition()
   let [returnCode, setReturnCode] = useState(0)
-  let [_email, setEmail] = useState('')
+  let [returnMessage, setReturnMessage] = useState('')
+  let [email, setEmail] = useState('')
 
   return (
     <main className='h-[100dvh] min-h-[300px] w-screen flex flex-col justify-center items-center p-6'>
+      {returnCode === 200 ? (
+        <Toast text={returnMessage} type={TOAST_TYPE.SUCCESS} />
+      ) : returnCode === 422 ? (
+        <Toast text={returnMessage} type={TOAST_TYPE.ERROR} />
+      ) : returnCode === 409 ? (
+        <Toast text={returnMessage} type={TOAST_TYPE.WARNING} />
+      ) : null}
       <h1 className='text-white font-bold text-4xl text-center px-8 mb-6'>
         Daniel’s News
       </h1>
@@ -19,21 +28,7 @@ export default function SubscribePage() {
             Subscribe to my newsletter
           </h3>
           <div className='mt-2 max-w-xl text-sm text-gray-500'>
-            {returnCode === 200 ? (
-              <p className='text-green-500'>
-                Thank you for subscribing to my newsletter!
-              </p>
-            ) : returnCode === 422 ? (
-              <p className='text-red-500'>
-                Please enter a valid email address.
-              </p>
-            ) : returnCode === 409 ? (
-              <p className='text-red-500'>
-                You are already subscribed to my newsletter.
-              </p>
-            ) : (
-              <p>You will receive an email once every three months.</p>
-            )}
+            <p>You will receive an email once every three months.</p>
           </div>
           <div className='mt-2 text-sm text-gray-500'></div>
           <form
@@ -44,6 +39,7 @@ export default function SubscribePage() {
 
                 if (result) {
                   setReturnCode(result.statusCode)
+                  setReturnMessage(result.body)
                 }
               })
             }
@@ -59,6 +55,7 @@ export default function SubscribePage() {
                 onChange={(event) => setEmail(event.target.value)}
                 className='block w-full rounded-md border-0 p-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primaryDark sm:text-sm sm:leading-6'
                 placeholder='paul@dirac.com'
+                value={returnCode === 200 ? '' : email}
               />
             </div>
             <button

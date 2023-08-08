@@ -13,7 +13,7 @@ export async function formAction(formData: FormData) {
   if (validatedEmailString.valid === false) {
     return {
       statusCode: 422,
-      body: 'Email is invalid',
+      body: 'Your email is not a valid email address. Please try another email address.',
 
       headers: {
         'Content-Type': 'text/plain',
@@ -31,7 +31,7 @@ export async function formAction(formData: FormData) {
 
     return {
       statusCode: 200,
-      body: 'Success',
+      body: 'Your email has been added to my newsletter list. Thank you!',
 
       headers: {
         'Content-Type': 'text/plain',
@@ -41,7 +41,7 @@ export async function formAction(formData: FormData) {
     // If email is already in database, return message
     return {
       statusCode: 409,
-      body: 'Email already exists',
+      body: 'The email you entered is already on my newsletter list. Thank you!',
 
       headers: {
         'Content-Type': 'text/plain',
