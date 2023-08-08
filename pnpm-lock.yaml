@@ -23,6 +23,9 @@ dependencies:
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.27)
+  deep-email-validator:
+    specifier: 0.1.21
+    version: 0.1.21
   eslint:
     specifier: 8.46.0
     version: 8.46.0
@@ -303,6 +306,10 @@ packages:
       tailwindcss: 3.3.3
     dev: false
 
+  /@types/disposable-email-domains@1.0.4:
+    resolution: {integrity: sha512-AmKPD8vBZzvey/jeg+YAIH/xJE3D6edOXz+YUooSCcHesGzFyzke83kj1j4d0LUR9nkSHIRklUVdcAMleuWLpg==}
+    dev: false
+
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
@@ -581,6 +588,14 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
+  /axios@0.24.0:
+    resolution: {integrity: sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==}
+    dependencies:
+      follow-redirects: 1.15.2
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /axobject-query@3.2.1:
     resolution: {integrity: sha512-jsyHu61e6N4Vbz/v18DHwWYKK0bSWLqn47eeDSKPB7m8tqMHF9YJ+mhIk2lVteyZrY8tnSj/jHOv4YiTCuCJgg==}
     dependencies:
@@ -769,6 +784,17 @@ packages:
       ms: 2.1.2
     dev: false
 
+  /deep-email-validator@0.1.21:
+    resolution: {integrity: sha512-DBAmMzbr+MAubXQ+TS9tZuPwLcdKscb8YzKZiwoLqF3NmaeEgXvSSHhZ0EXOFeKFE2FNWC4mNXCyiQ/JdFXUwg==}
+    dependencies:
+      '@types/disposable-email-domains': 1.0.4
+      axios: 0.24.0
+      disposable-email-domains: 1.0.62
+      mailcheck: 1.1.1
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
     dev: false
@@ -818,6 +844,10 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       path-type: 4.0.0
+    dev: false
+
+  /disposable-email-domains@1.0.62:
+    resolution: {integrity: sha512-LBQvhRw7mznQTPoyZbsmYeNOZt1pN5aCsx4BAU/3siVFuiM9f2oyKzUaB8v1jbxFjE3aYqYiMo63kAL4pHgfWQ==}
     dev: false
 
   /dlv@1.1.3:
@@ -1299,6 +1329,16 @@ packages:
 
   /flatted@3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
+    dev: false
+
+  /follow-redirects@1.15.2:
+    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
     dev: false
 
   /for-each@0.3.3:
@@ -1816,6 +1856,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+    dev: false
+
+  /mailcheck@1.1.1:
+    resolution: {integrity: sha512-3WjL8+ZDouZwKlyJBMp/4LeziLFXgleOdsYu87piGcMLqhBzCsy2QFdbtAwv757TFC/rtqd738fgJw1tFQCSgA==}
     dev: false
 
   /merge-stream@2.0.0:

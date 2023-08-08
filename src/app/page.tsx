@@ -1,15 +1,25 @@
 import { sql } from '@vercel/postgres'
+import validate from 'deep-email-validator'
 
-export default function Home() {
+export default function SubscribePage() {
   async function formAction(formData: FormData) {
     'use server'
 
+    // Get email from form data
     const email = formData.get('email')
-    const emailString = email?.toString().toLowerCase()
+    const emailString = email?.toString().toLowerCase() ?? ''
+    let validatedEmailString = await validate(emailString!)
 
+    // If email is invalid, don’t continue
+    if (validatedEmailString.valid === false) {
+      return
+    }
+
+    // Check if email is already in database
     const { rows } =
       await sql`SELECT * from "public"."SUBSCRIBERS" where email=${emailString}`
 
+    // If email is not in database, add it
     if (rows.length === 0) {
       await sql`INSERT INTO "public"."SUBSCRIBERS" (email) VALUES (${emailString})`
     }
