@@ -1,13 +1,18 @@
+import { sql } from '@vercel/postgres'
+
 export default function Home() {
   async function formAction(formData: FormData) {
     'use server'
 
     const email = formData.get('email')
+    const emailString = email?.toString().toLowerCase()
 
-    // wait 500ms to simulate a slow network
-    await new Promise((resolve) => setTimeout(resolve, 500))
+    const { rows } =
+      await sql`SELECT * from "public"."SUBSCRIBERS" where email=${emailString}`
 
-    console.log(email)
+    if (rows.length === 0) {
+      await sql`INSERT INTO "public"."SUBSCRIBERS" (email) VALUES (${emailString})`
+    }
   }
 
   return (
