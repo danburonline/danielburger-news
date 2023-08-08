@@ -1,16 +1,41 @@
 'use server'
 
 import { sql } from '@vercel/postgres'
-import validate from 'deep-email-validator'
+
+const emailRegex =
+  /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/
+
+function isEmailValid(email: string) {
+  if (!email) return false
+
+  if (email.length > 254) return false
+
+  var valid = emailRegex.test(email)
+  if (!valid) return false
+
+  // Further checking of some things regex can't handle
+  var parts = email.split('@')
+  if (parts[0].length > 64) return false
+
+  var domainParts = parts[1].split('.')
+  if (
+    domainParts.some(function (part) {
+      return part.length > 63
+    })
+  )
+    return false
+
+  return true
+}
 
 export async function formAction(formData: FormData) {
   // Get email from form data
   const email = formData.get('email')
   const emailString = email?.toString().toLowerCase() ?? ''
-  let validatedEmailString = await validate(emailString!)
+  let validatedEmailString = isEmailValid(emailString!)
 
   // If email is invalid, don’t continue
-  if (validatedEmailString.valid === false) {
+  if (validatedEmailString === false) {
     return {
       statusCode: 422,
       body: 'Your email is not a valid email address. Please try another email address.',

@@ -70,7 +70,7 @@ export default function SubscribePage() {
                 Email
               </label>
               <input
-                type='email'
+                // type='email'
                 name='email'
                 id='email'
                 onChange={(event) => setEmail(event.target.value)}
