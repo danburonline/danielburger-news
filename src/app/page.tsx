@@ -3,21 +3,35 @@
 import { formAction } from './actions'
 import { useState, useTransition } from 'react'
 import Toast, { TOAST_TYPE } from './components/Toast'
+import BeatLoader from 'react-spinners/BeatLoader'
 
 export default function SubscribePage() {
   let [isPending, startTransition] = useTransition()
   let [returnCode, setReturnCode] = useState(0)
   let [returnMessage, setReturnMessage] = useState('')
   let [email, setEmail] = useState('')
+  let [formActionsCompleted, setFormActionsCompleted] = useState(0)
 
   return (
     <main className='h-[100dvh] min-h-[300px] w-screen flex flex-col justify-center items-center p-6'>
       {returnCode === 200 ? (
-        <Toast text={returnMessage} type={TOAST_TYPE.SUCCESS} />
+        <Toast
+          key={`${returnCode}-${formActionsCompleted}`}
+          text={returnMessage}
+          type={TOAST_TYPE.SUCCESS}
+        />
       ) : returnCode === 422 ? (
-        <Toast text={returnMessage} type={TOAST_TYPE.ERROR} />
+        <Toast
+          key={`${returnCode}-${formActionsCompleted}`}
+          text={returnMessage}
+          type={TOAST_TYPE.ERROR}
+        />
       ) : returnCode === 409 ? (
-        <Toast text={returnMessage} type={TOAST_TYPE.WARNING} />
+        <Toast
+          key={`${returnCode}-${formActionsCompleted}`}
+          text={returnMessage}
+          type={TOAST_TYPE.WARNING}
+        />
       ) : null}
       <h1 className='text-white font-bold text-4xl text-center px-8 mb-6'>
         Daniel’s News
@@ -40,6 +54,13 @@ export default function SubscribePage() {
                 if (result) {
                   setReturnCode(result.statusCode)
                   setReturnMessage(result.body)
+                  if (result.statusCode === 200) {
+                    setEmail('')
+                  }
+
+                  setFormActionsCompleted(
+                    (formActionsCompleted) => formActionsCompleted + 1
+                  )
                 }
               })
             }
@@ -49,20 +70,27 @@ export default function SubscribePage() {
                 Email
               </label>
               <input
-                // type='email'
+                type='email'
                 name='email'
                 id='email'
                 onChange={(event) => setEmail(event.target.value)}
                 className='block w-full rounded-md border-0 p-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primaryDark sm:text-sm sm:leading-6'
                 placeholder='paul@dirac.com'
-                value={returnCode === 200 ? '' : email}
+                value={email}
               />
             </div>
             <button
               type='submit'
               className='mt-3 inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-black shadow-sm hover:bg-primaryDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primaryLight sm:ml-3 sm:mt-0 sm:w-auto'
             >
-              {isPending ? 'Loading' : 'Subscribe'}
+              {isPending ? (
+                <span className='absolute'>
+                  <BeatLoader color='#000' size={'5px'} />
+                </span>
+              ) : null}
+              <span className={isPending ? 'opacity-0' : 'opacity-1'}>
+                Subscribe
+              </span>
             </button>
           </form>
         </div>
