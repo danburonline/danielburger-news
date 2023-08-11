@@ -1,0 +1,7 @@
+.next
+.react-email
+.env.local
+
+build
+node_modules
+next-env.d.ts
