@@ -2,8 +2,8 @@
 
 import { sql } from '@vercel/postgres'
 import { Resend } from 'resend'
-import SubscribeConfirmation from '../../emails/SubscribeConfirmation'
-import { isEmailValid } from '../../utils/functions/globals'
+import SubscribeConfirmation from '../emails/SubscribeConfirmation'
+import { isEmailValid } from '../utils/functions/globals'
 
 export async function subscribeFormAction(formData: FormData) {
   // Get email from form data
