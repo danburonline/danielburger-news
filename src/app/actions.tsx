@@ -2,6 +2,7 @@
 
 import { sql } from '@vercel/postgres'
 import { Resend } from 'resend'
+import SubscribeConfirmation from '../../emails/SubscribeConfirmation'
 
 const emailRegex =
   /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/
@@ -52,12 +53,12 @@ export async function formAction(formData: FormData) {
 
   // If email is not in database, add it
   if (rows.length === 0) {
-    await sql`INSERT INTO "public"."SUBSCRIBERS" (email) VALUES (${emailString})`
+    await sql`INSERT INTO "public"."SUBSCRIBERS" (email, subscribed) VALUES (${emailString}, NOW())`
+    await sendEmail(emailString)
 
     return {
       statusCode: 200,
       body: 'Your email has been added to my newsletter list. Thank you!',
-
       headers: {
         'Content-Type': 'text/plain'
       }
@@ -75,14 +76,14 @@ export async function formAction(formData: FormData) {
   }
 }
 
-export async function sendEmail() {
+export async function sendEmail(email: string) {
   const resend = new Resend(process.env.RESEND_API_KEY!)
 
   await resend.emails.send({
-    from: 'onboarding@resend.dev',
-    to: 'authlogacc@pm.me',
-    subject: 'Hello World',
-    html: '<p>Congrats on sending your <strong>first email</strong>!</p>'
+    from: 'Daniel Burger <mail@danielburger.news>',
+    to: email,
+    subject: 'Daniel’s News: Subscription Confirmation',
+    react: <SubscribeConfirmation />
   })
 
   return {

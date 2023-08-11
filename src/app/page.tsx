@@ -4,6 +4,7 @@ import { formAction } from './actions'
 import { useState, useTransition } from 'react'
 import Toast, { TOAST_TYPE } from './components/Toast'
 import BeatLoader from 'react-spinners/BeatLoader'
+import { ArrowRightIcon } from '@heroicons/react/24/outline'
 
 export default function SubscribePage() {
   let [isPending, startTransition] = useTransition()
@@ -45,9 +46,15 @@ export default function SubscribePage() {
           <div className="mt-2 text-sm text-gray-500"></div>
           <form
             className="mt-5 sm:flex sm:items-center"
-            action={(event) =>
+            onSubmit={(event) => {
+              event.preventDefault()
+
+              // Create a FormData object from the form in the event object
+              let formData = new FormData(event.target as HTMLFormElement)
+
               startTransition(async () => {
-                let result = await formAction(event)
+                // Pass the FormData object to formAction
+                let result = await formAction(formData)
 
                 if (result) {
                   setReturnCode(result.statusCode)
@@ -59,7 +66,7 @@ export default function SubscribePage() {
                   setFormActionsCompleted((formActionsCompleted) => formActionsCompleted + 1)
                 }
               })
-            }
+            }}
           >
             <div className="w-full sm:max-w-xs">
               <label htmlFor="email" className="sr-only">
@@ -77,14 +84,24 @@ export default function SubscribePage() {
             </div>
             <button
               type="submit"
-              className="mt-3 inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-black shadow-sm hover:bg-primaryDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primaryLight sm:ml-3 sm:mt-0 sm:w-auto"
+              className={`mt-3 inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-black shadow-sm hover:bg-primaryDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primaryLight sm:ml-3 sm:mt-0 sm:w-auto ${
+                !email ? 'cursor-not-allowed' : ''
+              }`}
+              disabled={!email}
             >
               {isPending ? (
                 <span className="absolute">
                   <BeatLoader color="#000" size={'5px'} />
                 </span>
               ) : null}
-              <span className={isPending ? 'opacity-0' : 'opacity-1'}>Subscribe</span>
+              <span
+                className={`flex items-center justify-center ${
+                  isPending ? 'opacity-0' : 'opacity-1'
+                }`}
+              >
+                Subscribe
+                <ArrowRightIcon className="w-4 ml-2" />
+              </span>
             </button>
           </form>
         </div>
