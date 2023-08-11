@@ -2,7 +2,7 @@
 
 import { formAction } from './actions'
 import { useState, useTransition } from 'react'
-import Toast, { TOAST_TYPE } from './components/Toast'
+import Toast, { TOAST_TYPE } from '../../components/Toast'
 import BeatLoader from 'react-spinners/BeatLoader'
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
 

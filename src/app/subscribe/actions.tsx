@@ -2,7 +2,7 @@
 
 import { sql } from '@vercel/postgres'
 import { Resend } from 'resend'
-import SubscribeConfirmation from './emails/SubscribeConfirmation'
+import SubscribeConfirmation from '../../emails/SubscribeConfirmation'
 
 const emailRegex =
   /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/
