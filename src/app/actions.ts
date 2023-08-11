@@ -1,6 +1,7 @@
 'use server'
 
 import { sql } from '@vercel/postgres'
+import { Resend } from 'resend'
 
 const emailRegex =
   /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/
@@ -72,5 +73,21 @@ export async function formAction(formData: FormData) {
         'Content-Type': 'text/plain',
       },
     }
+  }
+}
+
+export async function sendEmail() {
+  const resend = new Resend(process.env.RESEND_API_KEY!)
+
+  await resend.emails.send({
+    from: 'onboarding@resend.dev',
+    to: 'authlogacc@pm.me',
+    subject: 'Hello World',
+    html: '<p>Congrats on sending your <strong>first email</strong>!</p>',
+  })
+
+  return {
+    statusCode: 200,
+    body: 'Email sent',
   }
 }
