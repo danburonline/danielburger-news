@@ -1,16 +1,16 @@
-"use client";
+'use client'
 
-import { formAction } from "./actions";
-import { useState, useTransition } from "react";
-import Toast, { TOAST_TYPE } from "./components/Toast";
-import BeatLoader from "react-spinners/BeatLoader";
+import { formAction } from './actions'
+import { useState, useTransition } from 'react'
+import Toast, { TOAST_TYPE } from './components/Toast'
+import BeatLoader from 'react-spinners/BeatLoader'
 
 export default function SubscribePage() {
-  let [isPending, startTransition] = useTransition();
-  let [returnCode, setReturnCode] = useState(0);
-  let [returnMessage, setReturnMessage] = useState("");
-  let [email, setEmail] = useState("");
-  let [formActionsCompleted, setFormActionsCompleted] = useState(0);
+  let [isPending, startTransition] = useTransition()
+  let [returnCode, setReturnCode] = useState(0)
+  let [returnMessage, setReturnMessage] = useState('')
+  let [email, setEmail] = useState('')
+  let [formActionsCompleted, setFormActionsCompleted] = useState(0)
 
   return (
     <main className="h-[100dvh] min-h-[300px] w-screen flex flex-col justify-center items-center p-6">
@@ -33,9 +33,7 @@ export default function SubscribePage() {
           type={TOAST_TYPE.WARNING}
         />
       ) : null}
-      <h1 className="text-white font-bold text-4xl text-center px-8 mb-6">
-        Daniel’s News
-      </h1>
+      <h1 className="text-white font-bold text-4xl text-center px-8 mb-6">Daniel’s News</h1>
       <div className="bg-white shadow-xl rounded-lg sm:p-3">
         <div className="px-6 py-7 sm:p-6">
           <h3 className="text-base font-semibold leading-6 text-gray-900">
@@ -49,18 +47,16 @@ export default function SubscribePage() {
             className="mt-5 sm:flex sm:items-center"
             action={(event) =>
               startTransition(async () => {
-                let result = await formAction(event);
+                let result = await formAction(event)
 
                 if (result) {
-                  setReturnCode(result.statusCode);
-                  setReturnMessage(result.body);
+                  setReturnCode(result.statusCode)
+                  setReturnMessage(result.body)
                   if (result.statusCode === 200) {
-                    setEmail("");
+                    setEmail('')
                   }
 
-                  setFormActionsCompleted(
-                    (formActionsCompleted) => formActionsCompleted + 1,
-                  );
+                  setFormActionsCompleted((formActionsCompleted) => formActionsCompleted + 1)
                 }
               })
             }
@@ -85,16 +81,14 @@ export default function SubscribePage() {
             >
               {isPending ? (
                 <span className="absolute">
-                  <BeatLoader color="#000" size={"5px"} />
+                  <BeatLoader color="#000" size={'5px'} />
                 </span>
               ) : null}
-              <span className={isPending ? "opacity-0" : "opacity-1"}>
-                Subscribe
-              </span>
+              <span className={isPending ? 'opacity-0' : 'opacity-1'}>Subscribe</span>
             </button>
           </form>
         </div>
       </div>
     </main>
-  );
+  )
 }

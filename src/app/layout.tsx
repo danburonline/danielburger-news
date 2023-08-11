@@ -1,16 +1,12 @@
-import "./globals.css";
-import type { Metadata } from "next";
+import './globals.css'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Daniel Burger’s Newsletter",
-  description: "Official newsletter of Daniel Burger",
-};
+  title: 'Daniel Burger’s Newsletter',
+  description: 'Official newsletter of Daniel Burger'
+}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
@@ -26,5 +22,5 @@ export default function RootLayout({
       </head>
       <body className="overscroll-none">{children}</body>
     </html>
-  );
+  )
 }

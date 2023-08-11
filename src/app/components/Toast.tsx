@@ -1,24 +1,24 @@
-import { Fragment, useEffect, useState } from "react";
-import { Transition } from "@headlessui/react";
-import { XMarkIcon, ExclamationCircleIcon } from "@heroicons/react/20/solid";
+import { Fragment, useEffect, useState } from 'react'
+import { Transition } from '@headlessui/react'
+import { XMarkIcon, ExclamationCircleIcon } from '@heroicons/react/20/solid'
 
 export enum TOAST_TYPE {
   SUCCESS,
   ERROR,
-  WARNING,
+  WARNING
 }
 
 type ToastProps = {
-  text: string;
-  type: TOAST_TYPE;
-};
+  text: string
+  type: TOAST_TYPE
+}
 
 export default function Toast(props: ToastProps) {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(true)
 
   useEffect(() => {
-    setShow(true);
-  }, [props.text]);
+    setShow(true)
+  }, [props.text])
 
   return (
     <>
@@ -59,16 +59,14 @@ export default function Toast(props: ToastProps) {
                     />
                   ) : null}
                   <div className="flex w-0 flex-1 justify-between">
-                    <p className="w-0 flex-1 text-sm font-medium text-gray-900">
-                      {props.text}
-                    </p>
+                    <p className="w-0 flex-1 text-sm font-medium text-gray-900">{props.text}</p>
                   </div>
                   <div className="ml-4 flex flex-shrink-0">
                     <button
                       type="button"
                       className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primaryDark focus:ring-offset-2"
                       onClick={() => {
-                        setShow(false);
+                        setShow(false)
                       }}
                     >
                       <span className="sr-only">Close</span>
@@ -82,5 +80,5 @@ export default function Toast(props: ToastProps) {
         </div>
       </div>
     </>
-  );
+  )
 }
