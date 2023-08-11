@@ -1,33 +1,45 @@
-import { Body, Container, Head, Heading, Html, Link, Preview, Text } from '@react-email/components'
+import {
+  Body,
+  Container,
+  Head,
+  Heading,
+  Html,
+  Link,
+  Preview,
+  Text,
+  Button
+} from '@react-email/components'
 import * as React from 'react'
 
-export default function SubscribeConfirmation() {
+export default function SubscribeOptIn({ confirmationLink }: { confirmationLink: string }) {
   return (
     <Html lang="en">
       <Head />
-      <Preview>You’re All Set to Join Daniel Burger’s Newsletter!</Preview>
+      <Preview>Please confirm your subscription for Daniel Burger’s Newsletter!</Preview>
       <Body style={main}>
         <Container style={container}>
-          <Heading style={h1}>Thank you ❤️</Heading>
+          <Heading style={h1}>Almost there...</Heading>
 
           <Text style={text}>
-            I’m thrilled to welcome you my quarterly personal newsletter! Your subscription has been
-            successfully confirmed. Feel free to check out the rest of my website:{' '}
-            <Link href="https://danielburger.online" target="_blank">
-              www.danielburger.online
-            </Link>
+            Thank you for showing interest in my quarterly personal newsletter! To complete your
+            subscription and start receiving updates, please{' '}
+            <b>confirm your email by clicking on the button below.</b>
           </Text>
+
+          <Button href={confirmationLink} target="_blank" style={button}>
+            Confirm your subscription
+          </Button>
 
           <Text
             style={{
               ...text,
               color: '#ababab',
-              marginTop: '14px',
-              marginBottom: '16px',
+              marginTop: '24px',
+              marginBottom: '14px',
               fontSize: '14px'
             }}
           >
-            If you didn’t subscribe on purpose, you can safely unsubscribe{' '}
+            If you changed your mind, you can unsubscribe{' '}
             <Link href="https://danielburger.news/unsubscribe" target="_blank" style={link}>
               here
             </Link>
@@ -42,6 +54,24 @@ export default function SubscribeConfirmation() {
 const main = {
   backgroundColor: '#111827',
   padding: '40px'
+}
+
+const button = {
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  display: 'block',
+  backgroundColor: '#FFE000',
+  color: '#000',
+  paddingTop: '14px',
+  paddingBottom: '14px',
+  paddingLeft: '20px',
+  paddingRight: '20px',
+  borderRadius: '8px',
+  textDecoration: 'none',
+  fontWeight: 'bold',
+  fontSize: '16px',
+  border: 'none',
+  cursor: 'pointer'
 }
 
 const container = {
