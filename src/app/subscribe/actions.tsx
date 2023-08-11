@@ -3,34 +3,9 @@
 import { sql } from '@vercel/postgres'
 import { Resend } from 'resend'
 import SubscribeConfirmation from '../../emails/SubscribeConfirmation'
+import { isEmailValid } from '../../utils/functions/globals'
 
-const emailRegex =
-  /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/
-
-function isEmailValid(email: string) {
-  if (!email) return false
-
-  if (email.length > 254) return false
-
-  let valid = emailRegex.test(email)
-  if (!valid) return false
-
-  // Further checking of some things regex can't handle
-  let parts = email.split('@')
-  if (parts[0].length > 64) return false
-
-  let domainParts = parts[1].split('.')
-  if (
-    domainParts.some(function (part) {
-      return part.length > 63
-    })
-  )
-    return false
-
-  return true
-}
-
-export async function formAction(formData: FormData) {
+export async function subscribeFormAction(formData: FormData) {
   // Get email from form data
   const email = formData.get('email')
   const emailString = email?.toString().toLowerCase() ?? ''
@@ -54,7 +29,7 @@ export async function formAction(formData: FormData) {
   // If email is not in database, add it
   if (rows.length === 0) {
     await sql`INSERT INTO "public"."SUBSCRIBERS" (email, subscribed) VALUES (${emailString}, NOW())`
-    await sendEmail(emailString)
+    await sendConfirmationEmail(emailString)
 
     return {
       statusCode: 200,
@@ -76,7 +51,7 @@ export async function formAction(formData: FormData) {
   }
 }
 
-export async function sendEmail(email: string) {
+async function sendConfirmationEmail(email: string) {
   const resend = new Resend(process.env.RESEND_API_KEY!)
 
   await resend.emails.send({
@@ -85,9 +60,4 @@ export async function sendEmail(email: string) {
     subject: 'Daniel’s News: Subscription Confirmation',
     react: <SubscribeConfirmation />
   })
-
-  return {
-    statusCode: 200,
-    body: 'Email sent'
-  }
 }

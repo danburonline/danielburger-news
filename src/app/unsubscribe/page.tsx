@@ -1,6 +1,6 @@
 'use client'
 
-import { formAction } from './actions'
+import { unsubscribeFormAction } from './actions'
 import { useState, useTransition } from 'react'
 import Toast, { TOAST_TYPE } from '../../components/Toast'
 import BeatLoader from 'react-spinners/BeatLoader'
@@ -48,7 +48,7 @@ export default function UnsubscribePage() {
 
               startTransition(async () => {
                 // Pass the FormData object to formAction
-                let result = await formAction(formData)
+                let result = await unsubscribeFormAction(formData)
 
                 if (result) {
                   setReturnCode(result.statusCode)

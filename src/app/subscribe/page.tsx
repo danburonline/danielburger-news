@@ -1,6 +1,6 @@
 'use client'
 
-import { formAction } from './actions'
+import { subscribeFormAction } from './actions'
 import { useState, useTransition } from 'react'
 import Toast, { TOAST_TYPE } from '../../components/Toast'
 import BeatLoader from 'react-spinners/BeatLoader'
@@ -54,7 +54,7 @@ export default function SubscribePage() {
 
               startTransition(async () => {
                 // Pass the FormData object to formAction
-                let result = await formAction(formData)
+                let result = await subscribeFormAction(formData)
 
                 if (result) {
                   setReturnCode(result.statusCode)
