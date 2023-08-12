@@ -11,7 +11,7 @@ export default function SubscribeConfirmation() {
           <Heading style={h1}>Thank you ❤️</Heading>
 
           <Text style={text}>
-            I’m thrilled to welcome you my quarterly personal newsletter!{' '}
+            I’m thrilled to welcome you to my quarterly personal newsletter!{' '}
             <b>Your subscription has been successfully confirmed.</b> Feel free to check out the
             rest of my website:{' '}
             <Link href="https://danielburger.online" target="_blank">
