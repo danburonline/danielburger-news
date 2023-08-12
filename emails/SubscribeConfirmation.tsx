@@ -41,19 +41,19 @@ export default function SubscribeConfirmation() {
 }
 
 const main = {
-  backgroundColor: '#111827',
+  backgroundColor: '#1A001A',
   padding: '40px'
 }
 
 const container = {
   padding: '40px',
   margin: '0 auto',
-  backgroundColor: '#fff',
+  backgroundColor: '#FFF7FF',
   borderRadius: '12px'
 }
 
 const h1 = {
-  color: '#333',
+  color: '#1A001A',
   fontFamily:
     "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
   fontSize: '24px',
@@ -70,7 +70,7 @@ const link = {
 }
 
 const text = {
-  color: 'black',
+  color: '#1A001A',
   fontFamily:
     "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
   fontSize: '16px',

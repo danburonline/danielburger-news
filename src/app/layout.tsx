@@ -10,10 +10,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className="bg-gray-900 h-full overscroll-none selection:bg-primary selection:text-black"
+      className="bg-dark h-full overscroll-none selection:bg-magenta selection:text-dark"
     >
       <head>
-        <meta name="theme-color" content="#111827" />
+        <meta name="theme-color" content="#1A001A" />
         <link rel="manifest" href="/manifest.json" />
         <meta
           name="viewport"

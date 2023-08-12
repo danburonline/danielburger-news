@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <>
       <head>
-        <meta name="theme-color" content="#111827" />
+        <meta name="theme-color" content="#1A001A" />
         <title>Page Not Found</title>
         <link rel="manifest" href="/manifest.json" />
         <meta
@@ -14,10 +14,10 @@ export default function NotFound() {
       </head>
       <body>
         <main className="h-[100dvh] min-h-[300px] w-screen flex flex-col justify-center items-center p-6">
-          <h1 className="text-white font-bold text-3xl text-center px-8 mb-6">Page Not Found</h1>
+          <h1 className="text-bright font-bold text-3xl text-center px-8 mb-6">Page Not Found</h1>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-black shadow-sm hover:bg-primaryDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primaryLight mt-0 w-auto"
+            className="inline-flex items-center justify-center rounded-md bg-magenta px-4 py-3 text-sm font-semibold text-dark shadow-sm hover:bg-magentaDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-magentaLight mt-0 w-auto"
           >
             Go to start page
           </a>

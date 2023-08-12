@@ -39,7 +39,7 @@ export default function Toast(props: ToastProps) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-bright shadow-lg ring-1 ring-dark ring-opacity-5">
               <div className="p-4">
                 <div className="flex items-center">
                   {props.type === TOAST_TYPE.SUCCESS ? (
@@ -59,12 +59,12 @@ export default function Toast(props: ToastProps) {
                     />
                   ) : null}
                   <div className="flex w-0 flex-1 justify-between">
-                    <p className="w-0 flex-1 text-sm font-medium text-gray-900">{props.text}</p>
+                    <p className="w-0 flex-1 text-sm font-medium text-dark">{props.text}</p>
                   </div>
                   <div className="ml-4 flex flex-shrink-0">
                     <button
                       type="button"
-                      className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primaryDark focus:ring-offset-2"
+                      className="inline-flex rounded-md bg-bright text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-magentaDark focus:ring-offset-2"
                       onClick={() => {
                         setShow(false)
                       }}

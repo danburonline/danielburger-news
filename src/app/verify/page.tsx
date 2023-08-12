@@ -29,7 +29,7 @@ export default function VerifyPage() {
   return (
     <>
       <head>
-        <meta name="theme-color" content="#111827" />
+        <meta name="theme-color" content="#1A001A" />
         <title>{verificationStatus}</title>
         <link rel="manifest" href="/manifest.json" />
         <meta
@@ -39,10 +39,10 @@ export default function VerifyPage() {
       </head>
       <body>
         <main className="h-[100dvh] min-h-[300px] w-screen flex flex-col justify-center items-center p-6">
-          <h1 className="text-white font-bold text-3xl text-center px-8 mb-6">
+          <h1 className="text-bright font-bold text-3xl text-center px-8 mb-6">
             {verificationStatus}
           </h1>
-          <p className="text-white text-m text-center">{message}</p>
+          <p className="text-bright text-m text-center">{message}</p>
         </main>
       </body>
     </>
