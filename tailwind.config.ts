@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss'
-import { Work_Sans } from 'next/font/google'
 
 const config: Config = {
   content: [
