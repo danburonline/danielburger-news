@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import { Work_Sans } from 'next/font/google'
 
 const config: Config = {
   content: [
@@ -18,6 +19,10 @@ const config: Config = {
         magentaLight: '#FF80FF',
         dark: '#1A001A',
         bright: '#FFF7FF'
+      },
+      fontFamily: {
+        serif: ['Sentient Variable', 'sans-serif'],
+        sans: ['Work Sans', 'system-ui', 'sans-serif']
       }
     }
   },

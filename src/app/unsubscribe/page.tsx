@@ -28,7 +28,9 @@ export default function UnsubscribePage() {
           type={TOAST_TYPE.ERROR}
         />
       ) : null}
-      <h1 className="text-bright font-bold text-4xl text-center px-8 mb-6">Daniel’s News</h1>
+      <h1 className="text-bright font-serif font-bold text-4xl text-center px-8 mb-6">
+        Daniel’s News
+      </h1>
       <div className="bg-bright shadow-xl rounded-lg sm:p-3">
         <div className="px-6 py-7 sm:p-6">
           <h3 className="text-base font-semibold leading-6 text-dark">
