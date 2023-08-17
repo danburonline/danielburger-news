@@ -33,9 +33,9 @@ export default function UnsubscribePage() {
       </h1>
       <div className="bg-bright shadow-xl rounded-lg sm:p-3">
         <div className="px-6 py-7 sm:p-6">
-          <h3 className="text-base font-semibold leading-6 text-dark">
+          <h2 className="text-base font-semibold leading-6 text-dark">
             Unsubscribe from my newsletter
-          </h3>
+          </h2>
           <div className="mt-2 max-w-xl text-sm text-gray-500">
             <p>Enter the email that you want to remove from my list.</p>
           </div>
