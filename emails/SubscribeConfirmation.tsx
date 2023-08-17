@@ -1,10 +1,41 @@
 import { Body, Container, Head, Heading, Html, Link, Preview, Text } from '@react-email/components'
 import * as React from 'react'
+import { Font } from '@react-email/font'
 
 export default function SubscribeConfirmation() {
   return (
     <Html lang="en">
       <Head />
+      <Font
+        fontFamily="Sentient-Variable"
+        fallbackFontFamily="Helvetica"
+        webFont={{
+          url: 'https://danielburger.news/fonts/Sentient-Variable.woff2',
+          format: 'woff2'
+        }}
+        fontWeight={700}
+        fontStyle="normal"
+      />
+      <Font
+        fontFamily="WorkSans-Variable"
+        fallbackFontFamily="Helvetica"
+        webFont={{
+          url: 'https://danielburger.news/fonts/WorkSans-Variable.woff2',
+          format: 'woff2'
+        }}
+        fontWeight={400}
+        fontStyle="normal"
+      />
+      <Font
+        fontFamily="WorkSans-Variable"
+        fallbackFontFamily="Helvetica"
+        webFont={{
+          url: 'https://danielburger.news/fonts/WorkSans-Variable.woff2',
+          format: 'woff2'
+        }}
+        fontWeight={600}
+        fontStyle="normal"
+      />
       <Preview>You’re All Set to Join Daniel Burger’s Newsletter!</Preview>
       <Body style={main}>
         <Container style={container}>
@@ -54,8 +85,7 @@ const container = {
 
 const h1 = {
   color: '#1A001A',
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  fontFamily: "'Sentient-Variable', serif",
   fontSize: '24px',
   fontWeight: 'bold',
   padding: '0'
@@ -63,16 +93,14 @@ const h1 = {
 
 const link = {
   color: '#ababab',
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  fontFamily: "'WorkSans-Variable', sans-serif",
   fontSize: '14px',
   textDecoration: 'underline'
 }
 
 const text = {
   color: '#1A001A',
-  fontFamily:
-    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  fontFamily: "'WorkSans-Variable', sans-serif",
   fontSize: '16px',
   margin: '24px 0'
 }
