@@ -20,8 +20,8 @@ const config: Config = {
         bright: '#FFF7FF'
       },
       fontFamily: {
-        serif: ['Sentient Variable', 'sans-serif'],
-        sans: ['Work Sans', 'system-ui', 'sans-serif']
+        serif: ['Sentient-Variable', 'sans-serif'],
+        sans: ['WorkSans-Variable', 'sans-serif']
       }
     }
   },

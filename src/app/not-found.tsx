@@ -1,9 +1,9 @@
-import Link from 'next/link'
+import Head from 'next/head'
 
 export default function NotFound() {
   return (
     <>
-      <head>
+      <Head>
         <meta name="theme-color" content="#1A001A" />
         <title>Page Not Found</title>
         <link rel="manifest" href="/manifest.json" />
@@ -11,7 +11,7 @@ export default function NotFound() {
           name="viewport"
           content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content"
         />
-      </head>
+      </Head>
       <body>
         <main className="h-[100dvh] min-h-[300px] w-screen flex flex-col justify-center items-center p-6">
           <h1 className="text-bright font-bold text-3xl text-center px-8 mb-6">Page Not Found</h1>
