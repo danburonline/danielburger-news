@@ -93,7 +93,7 @@ export default function SubscribePage() {
             >
               {isPending ? (
                 <span className="absolute">
-                  <BeatLoader className="bg-dark" size={'5px'} />
+                  <BeatLoader size={'5px'} />
                 </span>
               ) : null}
               <span

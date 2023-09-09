@@ -87,7 +87,7 @@ export default function UnsubscribePage() {
             >
               {isPending ? (
                 <span className="absolute">
-                  <BeatLoader color="#000" size={'5px'} />
+                  <BeatLoader size={'5px'} />
                 </span>
               ) : null}
               <span
