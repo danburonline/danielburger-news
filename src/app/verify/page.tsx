@@ -16,7 +16,7 @@ export default function VerifyPage() {
       let serverResponse = await verifyAction({ email } as { email: string })
 
       if (serverResponse.statusCode === 200) {
-        setVerificationStatus('Email verified!')
+        setVerificationStatus('Email verified')
         setMessage(serverResponse.body)
       }
     }
