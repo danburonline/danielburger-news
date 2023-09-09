@@ -64,7 +64,7 @@ export default function SubscribeOptIn({ confirmationLink }: { confirmationLink:
           <Text
             style={{
               ...text,
-              color: '#ababab',
+              color: '#AB93AB',
               marginTop: '24px',
               marginBottom: '14px',
               fontSize: '14px'
@@ -120,7 +120,7 @@ const h1 = {
 }
 
 const link = {
-  color: '#ababab',
+  color: '#AB93AB',
   fontFamily: "'WorkSans-Variable', sans-serif",
   fontSize: '14px',
   textDecoration: 'underline'

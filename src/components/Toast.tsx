@@ -64,7 +64,7 @@ export default function Toast(props: ToastProps) {
                   <div className="ml-4 flex flex-shrink-0">
                     <button
                       type="button"
-                      className="inline-flex rounded-md bg-bright text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-magentaDark focus:ring-offset-2"
+                      className="inline-flex rounded-md bg-bright text-medium hover:text-brightDark focus:outline-none focus:ring-2 focus:ring-magentaBright active:text-dark focus:ring-offset-2"
                       onClick={() => {
                         setShow(false)
                       }}

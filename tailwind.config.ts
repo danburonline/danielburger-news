@@ -8,16 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
-      },
       colors: {
         magenta: '#FF40FF',
-        magentaDark: '#E700E7',
-        magentaLight: '#FF80FF',
-        dark: '#1A001A',
-        bright: '#FFF7FF'
+        magentaBright: '#FF80FF',
+        magentaBrighter: '#FFC5FF',
+        bright: '#FFF7FF',
+        darkBright: '#F2E6F2',
+        medium: '#AB93AB',
+        brightDark: '#594759',
+        dark: '#1A001A'
       },
       fontFamily: {
         serif: ['Sentient-Variable', 'sans-serif'],

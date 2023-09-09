@@ -36,10 +36,10 @@ export default function UnsubscribePage() {
           <h2 className="text-base font-semibold leading-6 text-dark">
             Unsubscribe from my newsletter
           </h2>
-          <div className="mt-2 max-w-xl text-sm text-gray-500">
+          <div className="mt-2 max-w-xl text-sm text-brightDark">
             <p>Enter the email that you want to remove from my list.</p>
           </div>
-          <div className="mt-2 text-sm text-gray-500"></div>
+          <div className="mt-2 text-sm text-medium"></div>
           <form
             className="mt-5 sm:flex sm:items-center"
             onSubmit={(event) => {
@@ -73,14 +73,14 @@ export default function UnsubscribePage() {
                 name="email"
                 id="email"
                 onChange={(event) => setEmail(event.target.value)}
-                className="block bg-bright w-full rounded-md border-0 p-3 text-dark shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-magentaDark sm:text-sm sm:leading-6"
+                className="block bg-bright w-full rounded-md border-0 p-3 text-dark shadow-sm ring-1 ring-inset ring-medium placeholder:text-medium focus:ring-2 focus:ring-inset focus:ring-magenta sm:text-sm sm:leading-6"
                 placeholder="good@bye.com"
                 value={email}
               />
             </div>
             <button
               type="submit"
-              className={`mt-3 inline-flex w-full items-center justify-center rounded-md bg-magenta px-4 py-3 text-sm font-semibold text-dark shadow-sm hover:bg-magentaDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-magentaLight sm:ml-3 sm:mt-0 sm:w-auto ${
+              className={`mt-3 inline-flex w-full items-center justify-center rounded-md bg-magenta px-4 py-3 text-sm font-semibold text-dark shadow-sm hover:bg-magentaBright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:bg-magentaBrighter focus-visible:outline-magenta sm:ml-3 sm:mt-0 sm:w-auto ${
                 !email ? 'cursor-not-allowed' : ''
               }`}
               disabled={!email}

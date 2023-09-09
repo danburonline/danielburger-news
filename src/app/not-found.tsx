@@ -17,7 +17,7 @@ export default function NotFound() {
           <h1 className="text-bright font-bold text-3xl text-center px-8 mb-6">Page Not Found</h1>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md bg-magenta px-4 py-3 text-sm font-semibold text-dark shadow-sm hover:bg-magentaDark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-magentaLight mt-0 w-auto"
+            className="inline-flex items-center justify-center rounded-md bg-magenta px-4 py-3 text-sm font-semibold text-dark shadow-sm hover:bg-magentaBright active:bg-magentaBrighter focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-magentaBright mt-0 w-auto"
           >
             Go to start page
           </a>
